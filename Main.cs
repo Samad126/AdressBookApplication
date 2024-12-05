@@ -9,12 +9,12 @@ using System.Windows.Forms;
 
 namespace AdressBookApplication
 {
-    public partial class Contacts : Form
+    public partial class Main : Form
     {
         private int userId, contactId, addressId;
         private string mainType;
 
-        public Contacts(int userId, string mainType)
+        public Main(int userId, string mainType)
         {
             InitializeComponent();
             this.userId = userId;
@@ -164,11 +164,12 @@ namespace AdressBookApplication
             textChanger();
         }
 
-        private void Contacts_Load(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
             dataGridView1.DefaultCellStyle.BackColor = Color.White;
             dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
 
+            dataGridView1.RowTemplate.Height = 40;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.GridColor = Color.White;
@@ -180,16 +181,16 @@ namespace AdressBookApplication
             this.addressSwitcherBtn.Text = this.mainType == "contact" ? "View Address" : "Back To Contacts";
         }
 
-        private void addContactBtn_Click(object sender, EventArgs e)
+        private void addItem_Click(object sender, EventArgs e)
         {
             Form add;
             if (this.mainType == "contact")
             {
-                add = new AddUpdateContact("add", this.userId, this.mainType);
+                add = new AddUpdateModal("add", this.userId, this.mainType);
             }
             else
             {
-                add = new AddUpdateContact("add", this.userId, this.mainType, this.contactId);
+                add = new AddUpdateModal("add", this.userId, this.mainType, this.contactId);
             }
 
             var result = add.ShowDialog();
@@ -201,7 +202,7 @@ namespace AdressBookApplication
             }
         }
 
-        private void updateContactBtn_Click(object sender, EventArgs e)
+        private void updateItem_Click(object sender, EventArgs e)
         {
             if (checkSelectedCount() == 1)
             {
@@ -229,7 +230,7 @@ namespace AdressBookApplication
                             arr.Add(email);
                             arr.Add(birthday);
 
-                            Form update = new AddUpdateContact("update", this.userId, this.mainType, contactId, arr);
+                            Form update = new AddUpdateModal("update", this.userId, this.mainType, contactId, arr);
                             var result = update.ShowDialog();
 
                             if (result == DialogResult.OK)
@@ -250,7 +251,7 @@ namespace AdressBookApplication
                             arr.Add(city);
                             arr.Add(country);
 
-                            Form update = new AddUpdateContact("update", this.userId, this.mainType, contactId, this.addressId, arr);
+                            Form update = new AddUpdateModal("update", this.userId, this.mainType, contactId, this.addressId, arr);
                             var result = update.ShowDialog();
 
                             if (result == DialogResult.OK)
@@ -283,7 +284,7 @@ namespace AdressBookApplication
             return selects;
         }
 
-        private void removeContactBtn_Click(object sender, EventArgs e)
+        private void removItem_Click(object sender, EventArgs e)
         {
             if (checkSelectedCount() == 0)
             {
@@ -359,7 +360,7 @@ namespace AdressBookApplication
         private void moveToLogin()
         {
             this.Hide();
-            Form login = new Login("login");
+            Form login = new Auth("login");
             login.Closed += (s, args) => this.Close();
             login.Show();
         }

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace AdressBookApplication
 {
-    public partial class AddUpdateContact : Form
+    public partial class AddUpdateModal : Form
     {
         private string GetConnectionStr()
         {
@@ -17,20 +17,20 @@ namespace AdressBookApplication
         private string formType, mainType;
         private List<object> arr;
 
-        public AddUpdateContact(string formType, int userId, string mainType)
+        public AddUpdateModal(string formType, int userId, string mainType)
         {
             InitializeComponent();
             InitializeDefaultValues(formType, userId, mainType);
         }
 
-        public AddUpdateContact(string formType, int userId, string mainType, int contactId)
+        public AddUpdateModal(string formType, int userId, string mainType, int contactId)
         {
             InitializeComponent();
             InitializeDefaultValues(formType, userId, mainType);
             this.contactId = contactId;
         }
 
-        public AddUpdateContact(string formType, int userId, string mainType, int contactId, List<object> arr)
+        public AddUpdateModal(string formType, int userId, string mainType, int contactId, List<object> arr)
         {
             InitializeComponent();
             InitializeDefaultValues(formType, userId, mainType);
@@ -48,7 +48,7 @@ namespace AdressBookApplication
             }
         }
 
-        public AddUpdateContact(string formType, int userId, string mainType, int contactId, int addressId, List<object> arr)
+        public AddUpdateModal(string formType, int userId, string mainType, int contactId, int addressId, List<object> arr)
         {
             InitializeComponent();
             InitializeDefaultValues(formType, userId, mainType);

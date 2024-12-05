@@ -1,6 +1,6 @@
 ﻿namespace AdressBookApplication
 {
-    partial class AddUpdateContact
+    partial class AddUpdateModal
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         // AddContactForm.Designer.cs
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUpdateModal));
             addressPanel = new Panel();
             lblStreet = new Label();
             lblCountry = new Label();
@@ -279,6 +280,7 @@
             Controls.Add(contactPanel);
             Controls.Add(addressPanel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "AddUpdateContact";
             StartPosition = FormStartPosition.CenterScreen;

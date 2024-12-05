@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace AdressBookApplication
 {
-    public partial class Login : Form
+    public partial class Auth : Form
     {
-        public Login(string authType)
+        public Auth(string authType)
         {
             InitializeComponent();
             this.authType = authType;
@@ -32,21 +32,24 @@ namespace AdressBookApplication
 
         private void textChanger()
         {
+            bool isLogin = this.authType == "login";
+
             this.authLabel.Text = this.authType.ToUpper();
-            this.extraMsg.Text = this.authType == "login" ? "Don't have an account?" : "Already have an account?";
-            this.authButton.Text = this.authType == "login" ? "Login" : "Sign Up";
-            this.authSwitcher.Text = this.authType == "login" ? "Sign Up" : "Log In";
+            this.extraMsg.Text = isLogin ? "Don't have an account?" : "Already have an account?";
+            this.authButton.Text = isLogin ? "Login" : "Sign Up";
+            this.authSwitcher.Text = isLogin ? "Sign Up" : "Log In";
+            this.Text = isLogin ? "Login" : "Sign Up";
         }
 
         private void visibilityChanger()
         {
-            bool isRegister = this.authType == "register";
+            bool isLogin = this.authType == "login";
 
-            this.loginPanelWrapper.Visible = !isRegister;
-            this.registerPanelWrapper.Visible = isRegister;
+            this.loginPanelWrapper.Visible = isLogin;
+            this.registerPanelWrapper.Visible = !isLogin;
 
-            this.extraMsg.Size = new Size(this.authType == "login" ? 190 : 210, this.extraMsg.Height);
-            this.extraMsg.Location = new Point(this.authType == "login" ? 610 : 595, 420);
+            this.extraMsg.Size = new Size(isLogin ? 190 : 210, this.extraMsg.Height);
+            this.extraMsg.Location = new Point(isLogin ? 610 : 595, 420);
 
             textChanger();
         }
@@ -81,7 +84,7 @@ namespace AdressBookApplication
                                 {
                                     int userId = Convert.ToInt32(result);
                                     this.Hide();
-                                    Form contact = new Contacts(userId, "contact");
+                                    Form contact = new Main(userId, "contact");
                                     contact.Closed += (s, args) => this.Close();
                                     contact.Show();
                                 }

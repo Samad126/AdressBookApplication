@@ -1,6 +1,6 @@
 ﻿namespace AdressBookApplication
 {
-    partial class Login
+    partial class Auth
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -20,6 +20,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Auth));
             usrNameInp = new TextBox();
             passwrdInp = new TextBox();
             authButton = new Button();
@@ -259,6 +260,7 @@
             Controls.Add(authSwitcher);
             Controls.Add(authButton);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;

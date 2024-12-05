@@ -1,6 +1,6 @@
 ﻿namespace AdressBookApplication
 {
-    partial class Contacts
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             dataGridView1 = new DataGridView();
             first_name = new DataGridViewTextBoxColumn();
             last_name = new DataGridViewTextBoxColumn();
@@ -140,7 +141,7 @@
             removeContactBtn.TabIndex = 9;
             removeContactBtn.Text = "Remove";
             removeContactBtn.UseVisualStyleBackColor = false;
-            removeContactBtn.Click += removeContactBtn_Click;
+            removeContactBtn.Click += removItem_Click;
             // 
             // updateContactBtn
             // 
@@ -156,7 +157,7 @@
             updateContactBtn.TabIndex = 8;
             updateContactBtn.Text = "Update";
             updateContactBtn.UseVisualStyleBackColor = false;
-            updateContactBtn.Click += updateContactBtn_Click;
+            updateContactBtn.Click += updateItem_Click;
             // 
             // addContactBtn
             // 
@@ -172,7 +173,7 @@
             addContactBtn.TabIndex = 7;
             addContactBtn.Text = "New +";
             addContactBtn.UseVisualStyleBackColor = false;
-            addContactBtn.Click += addContactBtn_Click;
+            addContactBtn.Click += addItem_Click;
             // 
             // headerPanel
             // 
@@ -287,11 +288,12 @@
             Controls.Add(updateContactBtn);
             Controls.Add(addContactBtn);
             Controls.Add(headerPanel);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(1177, 731);
             Name = "Contacts";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Contacts";
-            Load += Contacts_Load;
+            Load += Main_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             headerPanel.ResumeLayout(false);
             headerPanel.PerformLayout();
