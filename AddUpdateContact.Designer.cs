@@ -279,6 +279,7 @@
             Controls.Add(contactPanel);
             Controls.Add(addressPanel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "AddUpdateContact";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Contact";

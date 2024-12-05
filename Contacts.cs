@@ -20,12 +20,35 @@ namespace AdressBookApplication
             this.userId = userId;
             this.mainType = mainType;
             fetchData(mainType);
+            fetchUserName(userId);
             textChanger();
         }
 
         private string GetConnectionStr()
         {
             return System.Configuration.ConfigurationManager.ConnectionStrings["MyConStr"].ConnectionString;
+        }
+
+        private void fetchUserName(int id)
+        {
+            const string query = "SELECT username FROM Users WHERE id = @userId";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(GetConnectionStr()))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@userId", id);
+                        string username = (string)cmd.ExecuteScalar();
+                        this.userNameLabel.Text = username;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to fetch user info: {ex.Message}");
+            }
         }
 
         private void fetchData(string type)
@@ -44,7 +67,6 @@ namespace AdressBookApplication
 
                 using (SqlConnection connection = new SqlConnection(GetConnectionStr()))
                 {
-                    connection.Open();
 
                     using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
@@ -147,8 +169,6 @@ namespace AdressBookApplication
             dataGridView1.DefaultCellStyle.BackColor = Color.White;
             dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
 
-            //dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSteelBlue;
-            //dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.GridColor = Color.White;
@@ -286,7 +306,7 @@ namespace AdressBookApplication
                     {
                         query = "DELETE FROM Contacts WHERE user_id = @userId AND id = @contactId";
                     }
-                    else // mainType == "address"
+                    else
                     {
                         query = "DELETE FROM Addresses WHERE user_id = @userId AND contact_id = @contactId AND id = @addressId";
                     }
@@ -310,7 +330,7 @@ namespace AdressBookApplication
                                         cmd.ExecuteNonQuery();
                                     }
                                 }
-                                else // mainType == "address"
+                                else
                                 {
                                     this.addressId = Convert.ToInt32(row.Cells["id"].Value);
                                     this.contactId = Convert.ToInt32(row.Cells["contact_id"].Value);

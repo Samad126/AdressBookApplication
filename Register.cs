@@ -65,7 +65,6 @@ namespace AdressBookApplication
                         {
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Registration successful! Redirecting to login.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            moveToLogin();
                         }
                         catch (SqlException ex)
                         {
@@ -85,19 +84,6 @@ namespace AdressBookApplication
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
-            moveToLogin();
-        }
-
-        void moveToLogin()
-        {
-            this.Hide();
-            Form login = new Login("");
-            login.Closed += (s, args) => this.Close();
-            login.Show();
         }
 
         private void userNameInp_TextChanged(object sender, EventArgs e)

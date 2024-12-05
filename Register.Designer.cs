@@ -34,18 +34,18 @@
             label2 = new Label();
             registerBtn = new Button();
             userNameInp = new TextBox();
-            panel2 = new Panel();
-            panel1 = new Panel();
-            panel3 = new Panel();
+            passwordRegPanel = new Panel();
+            usernameRegPanel = new Panel();
+            reptPassPanel = new Panel();
             repeatPassInp = new TextBox();
-            panel4 = new Panel();
+            emailRegPanel = new Panel();
             emailInp = new TextBox();
-            panel5 = new Panel();
-            panel2.SuspendLayout();
-            panel1.SuspendLayout();
-            panel3.SuspendLayout();
-            panel4.SuspendLayout();
-            panel5.SuspendLayout();
+            registerPanelWrapper = new Panel();
+            passwordRegPanel.SuspendLayout();
+            usernameRegPanel.SuspendLayout();
+            reptPassPanel.SuspendLayout();
+            emailRegPanel.SuspendLayout();
+            registerPanelWrapper.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -85,7 +85,7 @@
             loginBtn.TabIndex = 5;
             loginBtn.Text = "Log in";
             loginBtn.UseVisualStyleBackColor = false;
-            loginBtn.Click += loginBtn_Click;
+            //loginBtn.Click += loginBtn_Click;
             // 
             // label2
             // 
@@ -122,32 +122,32 @@
             userNameInp.TabIndex = 0;
             userNameInp.TextChanged += userNameInp_TextChanged;
             // 
-            // panel2
+            // passwordRegPanel
             // 
-            panel2.BackColor = SystemColors.ControlLightLight;
-            panel2.Controls.Add(passInp);
-            panel2.Location = new Point(7, 111);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(323, 39);
-            panel2.TabIndex = 2;
+            passwordRegPanel.BackColor = SystemColors.ControlLightLight;
+            passwordRegPanel.Controls.Add(passInp);
+            passwordRegPanel.Location = new Point(7, 111);
+            passwordRegPanel.Name = "passwordRegPanel";
+            passwordRegPanel.Size = new Size(323, 39);
+            passwordRegPanel.TabIndex = 2;
             // 
-            // panel1
+            // usernameRegPanel
             // 
-            panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(userNameInp);
-            panel1.Location = new Point(7, 5);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(323, 39);
-            panel1.TabIndex = 0;
+            usernameRegPanel.BackColor = SystemColors.ControlLightLight;
+            usernameRegPanel.Controls.Add(userNameInp);
+            usernameRegPanel.Location = new Point(7, 5);
+            usernameRegPanel.Name = "usernameRegPanel";
+            usernameRegPanel.Size = new Size(323, 39);
+            usernameRegPanel.TabIndex = 0;
             // 
-            // panel3
+            // reptPassPanel
             // 
-            panel3.BackColor = SystemColors.ControlLightLight;
-            panel3.Controls.Add(repeatPassInp);
-            panel3.Location = new Point(7, 164);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(323, 39);
-            panel3.TabIndex = 3;
+            reptPassPanel.BackColor = SystemColors.ControlLightLight;
+            reptPassPanel.Controls.Add(repeatPassInp);
+            reptPassPanel.Location = new Point(7, 164);
+            reptPassPanel.Name = "reptPassPanel";
+            reptPassPanel.Size = new Size(323, 39);
+            reptPassPanel.TabIndex = 3;
             // 
             // repeatPassInp
             // 
@@ -159,14 +159,14 @@
             repeatPassInp.TabIndex = 3;
             repeatPassInp.UseSystemPasswordChar = true;
             // 
-            // panel4
+            // emailRegPanel
             // 
-            panel4.BackColor = SystemColors.ControlLightLight;
-            panel4.Controls.Add(emailInp);
-            panel4.Location = new Point(7, 57);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(323, 39);
-            panel4.TabIndex = 12;
+            emailRegPanel.BackColor = SystemColors.ControlLightLight;
+            emailRegPanel.Controls.Add(emailInp);
+            emailRegPanel.Location = new Point(7, 57);
+            emailRegPanel.Name = "emailRegPanel";
+            emailRegPanel.Size = new Size(323, 39);
+            emailRegPanel.TabIndex = 12;
             // 
             // emailInp
             // 
@@ -178,23 +178,23 @@
             emailInp.TabIndex = 1;
             emailInp.TextChanged += emailInp_TextChanged;
             // 
-            // panel5
+            // registerPanelWrapper
             // 
-            panel5.Controls.Add(panel4);
-            panel5.Controls.Add(panel3);
-            panel5.Controls.Add(panel2);
-            panel5.Controls.Add(panel1);
-            panel5.Location = new Point(233, 92);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(339, 216);
-            panel5.TabIndex = 13;
+            registerPanelWrapper.Controls.Add(emailRegPanel);
+            registerPanelWrapper.Controls.Add(reptPassPanel);
+            registerPanelWrapper.Controls.Add(passwordRegPanel);
+            registerPanelWrapper.Controls.Add(usernameRegPanel);
+            registerPanelWrapper.Location = new Point(233, 92);
+            registerPanelWrapper.Name = "registerPanelWrapper";
+            registerPanelWrapper.Size = new Size(339, 216);
+            registerPanelWrapper.TabIndex = 13;
             // 
             // Register
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(panel5);
+            Controls.Add(registerPanelWrapper);
             Controls.Add(label1);
             Controls.Add(loginBtn);
             Controls.Add(label2);
@@ -204,15 +204,15 @@
             Name = "Register";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sign Up";
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel5.ResumeLayout(false);
+            passwordRegPanel.ResumeLayout(false);
+            passwordRegPanel.PerformLayout();
+            usernameRegPanel.ResumeLayout(false);
+            usernameRegPanel.PerformLayout();
+            reptPassPanel.ResumeLayout(false);
+            reptPassPanel.PerformLayout();
+            emailRegPanel.ResumeLayout(false);
+            emailRegPanel.PerformLayout();
+            registerPanelWrapper.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -225,12 +225,12 @@
         private Label label2;
         private Button registerBtn;
         private TextBox userNameInp;
-        private Panel panel2;
-        private Panel panel1;
-        private Panel panel3;
+        private Panel passwordRegPanel;
+        private Panel usernameRegPanel;
+        private Panel reptPassPanel;
         private TextBox repeatPassInp;
-        private Panel panel4;
+        private Panel emailRegPanel;
         private TextBox emailInp;
-        private Panel panel5;
+        private Panel registerPanelWrapper;
     }
 }

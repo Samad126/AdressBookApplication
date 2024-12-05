@@ -67,13 +67,14 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ControlLightLight;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { first_name, last_name, nickname, email, phone, birthday });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.ControlLightLight;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
@@ -128,6 +129,7 @@
             // removeContactBtn
             // 
             removeContactBtn.BackColor = SystemColors.ControlLightLight;
+            removeContactBtn.Cursor = Cursors.Hand;
             removeContactBtn.FlatAppearance.BorderSize = 0;
             removeContactBtn.FlatStyle = FlatStyle.Flat;
             removeContactBtn.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
@@ -143,6 +145,7 @@
             // updateContactBtn
             // 
             updateContactBtn.BackColor = SystemColors.ControlLightLight;
+            updateContactBtn.Cursor = Cursors.Hand;
             updateContactBtn.FlatAppearance.BorderSize = 0;
             updateContactBtn.FlatStyle = FlatStyle.Flat;
             updateContactBtn.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
@@ -158,6 +161,7 @@
             // addContactBtn
             // 
             addContactBtn.BackColor = SystemColors.Highlight;
+            addContactBtn.Cursor = Cursors.Hand;
             addContactBtn.FlatAppearance.BorderSize = 0;
             addContactBtn.FlatStyle = FlatStyle.Flat;
             addContactBtn.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
@@ -166,7 +170,7 @@
             addContactBtn.Name = "addContactBtn";
             addContactBtn.Size = new Size(130, 42);
             addContactBtn.TabIndex = 7;
-            addContactBtn.Text = "+  New";
+            addContactBtn.Text = "New +";
             addContactBtn.UseVisualStyleBackColor = false;
             addContactBtn.Click += addContactBtn_Click;
             // 
@@ -184,6 +188,7 @@
             // 
             // userPanelWrapper
             // 
+            userPanelWrapper.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             userPanelWrapper.Controls.Add(userNameLabel);
             userPanelWrapper.Controls.Add(logoutWrapperPanel);
             userPanelWrapper.Controls.Add(pictureBox1);
@@ -196,16 +201,18 @@
             // 
             userNameLabel.AutoSize = true;
             userNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            userNameLabel.Location = new Point(3, 10);
+            userNameLabel.Location = new Point(50, 9);
             userNameLabel.Name = "userNameLabel";
             userNameLabel.Size = new Size(166, 28);
             userNameLabel.TabIndex = 3;
             userNameLabel.Text = "Samad Alakbarov";
+            userNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // logoutWrapperPanel
             // 
             logoutWrapperPanel.Controls.Add(logoutLabel);
             logoutWrapperPanel.Controls.Add(pictureBox2);
+            logoutWrapperPanel.Cursor = Cursors.Hand;
             logoutWrapperPanel.Location = new Point(257, 2);
             logoutWrapperPanel.Name = "logoutWrapperPanel";
             logoutWrapperPanel.Size = new Size(131, 41);
@@ -236,7 +243,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.ppImage;
-            pictureBox1.Location = new Point(175, 7);
+            pictureBox1.Location = new Point(7, 6);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(37, 35);
             pictureBox1.TabIndex = 2;
@@ -256,6 +263,7 @@
             // addressSwitcherBtn
             // 
             addressSwitcherBtn.BackColor = SystemColors.ControlLightLight;
+            addressSwitcherBtn.Cursor = Cursors.Hand;
             addressSwitcherBtn.FlatAppearance.BorderSize = 0;
             addressSwitcherBtn.FlatStyle = FlatStyle.Flat;
             addressSwitcherBtn.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
@@ -279,7 +287,7 @@
             Controls.Add(updateContactBtn);
             Controls.Add(addContactBtn);
             Controls.Add(headerPanel);
-            MaximizeBox = false;
+            MinimumSize = new Size(1177, 731);
             Name = "Contacts";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Contacts";
